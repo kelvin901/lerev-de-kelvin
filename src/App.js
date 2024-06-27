@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import Accommodation from './pages/Accommodation';
+import RestaurantsAndBar from './pages/RestaurantsAndBar';
+import Conferences from './pages/Conferences';
+import AmazingExperience from './pages/AmazingExperience';
+import VirtualTour from './pages/VirtualTour';
+import ContactUs from './pages/ContactUs';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/accommodation">Accommodation</Link></li>
+            <li><Link to="/restaurants-and-bar">Restaurants & Bar</Link></li>
+            <li><Link to="/conferences">Conferences</Link></li>
+            <li><Link to="/amazing-experience">Amazing Experience</Link></li>
+            <li><Link to="/virtual-tour">Virtual Tour</Link></li>
+            <li><Link to="/contact-us">Contact Us</Link></li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/accommodation" component={Accommodation} />
+          <Route path="/restaurants-and-bar" component={RestaurantsAndBar} />
+          <Route path="/conferences" component={Conferences} />
+          <Route path="/amazing-experience" component={AmazingExperience} />
+          <Route path="/virtual-tour" component={VirtualTour} />
+          <Route path="/contact-us" component={ContactUs} />
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
